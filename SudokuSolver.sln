@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C# Express 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SudokuSolver", "SudokuSolver\SudokuSolver.csproj", "{E0F2EB89-9E7F-4236-8B62-7495DC2C466F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SudokuSolverTest", "SudokuSolverTest\SudokuSolverTest.csproj", "{FA73B6EB-40EC-4021-A5B8-EF62770CD3D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SudokuSolverApp", "SudokuSolverApp\SudokuSolverApp.csproj", "{FFE6E653-9EE4-4A38-88A2-27A1A9AFD914}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0F2EB89-9E7F-4236-8B62-7495DC2C466F}.Debug|x86.ActiveCfg = Debug|x86
+		{E0F2EB89-9E7F-4236-8B62-7495DC2C466F}.Debug|x86.Build.0 = Debug|x86
+		{E0F2EB89-9E7F-4236-8B62-7495DC2C466F}.Release|x86.ActiveCfg = Release|x86
+		{E0F2EB89-9E7F-4236-8B62-7495DC2C466F}.Release|x86.Build.0 = Release|x86
+		{FA73B6EB-40EC-4021-A5B8-EF62770CD3D1}.Debug|x86.ActiveCfg = Debug|x86
+		{FA73B6EB-40EC-4021-A5B8-EF62770CD3D1}.Debug|x86.Build.0 = Debug|x86
+		{FA73B6EB-40EC-4021-A5B8-EF62770CD3D1}.Release|x86.ActiveCfg = Release|x86
+		{FA73B6EB-40EC-4021-A5B8-EF62770CD3D1}.Release|x86.Build.0 = Release|x86
+		{FFE6E653-9EE4-4A38-88A2-27A1A9AFD914}.Debug|x86.ActiveCfg = Debug|x86
+		{FFE6E653-9EE4-4A38-88A2-27A1A9AFD914}.Debug|x86.Build.0 = Debug|x86
+		{FFE6E653-9EE4-4A38-88A2-27A1A9AFD914}.Release|x86.ActiveCfg = Release|x86
+		{FFE6E653-9EE4-4A38-88A2-27A1A9AFD914}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

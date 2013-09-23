@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using SudokuSolver;
 using System.IO;
+using AlgorithmX;
 
 namespace SudokuSolverApp
 {
@@ -17,7 +18,7 @@ namespace SudokuSolverApp
         const string UNKNOWNS = ".0";
 
         SudokuParser _parser = new SudokuParser();
-        ISudokuSolver _solver = new BacktrackSudokuSolver();
+        ISudokuSolver _solver = new AlgXSudokuSolver(new NaiveAlgorithmX());
 
         public MainForm()
         {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SudokuSolver;
+using AlgorithmX;
 
 namespace SudokuSolverTest
 {
@@ -17,7 +18,7 @@ namespace SudokuSolverTest
             SudokuGrid grid = parser.ParseString(
                 "030605000600090002070100006090000000810050069000000080400003020900020005000908030",
                 Alphabet, Unknowns);
-            ISudokuSolver solver = new BacktrackSudokuSolver();
+            ISudokuSolver solver = new AlgXSudokuSolver(new NaiveAlgorithmX());
             IList<SudokuGrid> solutions = solver.FindAllSolutions(grid);
             Console.WriteLine("{0} solution(s).", solutions.Count);
             if (solutions.Count > 0)

@@ -86,6 +86,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AlgorithmX\AlgorithmX.csproj">
+      <Project>{8AE2A0E3-818F-437E-8A08-0486E5E487BE}</Project>
+      <Name>AlgorithmX</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SudokuSolver\SudokuSolver.csproj">
       <Project>{E0F2EB89-9E7F-4236-8B62-7495DC2C466F}</Project>
       <Name>SudokuSolver</Name>

@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System;
+using System.Linq;
+
 namespace SudokuSolver
 {
     /// <summary>
@@ -11,14 +13,21 @@ namespace SudokuSolver
     /// </summary>
     public class BacktrackSudokuSolver : ISudokuSolver
     {
-        public IList<SudokuGrid> FindAllSolutions(SudokuGrid original)
+        public SudokuGrid FindFirstSolution(SudokuGrid original)
         {
             List<SudokuGrid> solutions = new List<SudokuGrid>();
-            Solve(original.Clone(), 0, 0, solutions);
+            Solve(original.Clone(), 0, 0, solutions, 1);
+            return solutions.FirstOrDefault();
+        }
+
+        public List<SudokuGrid> FindAllSolutions(SudokuGrid original)
+        {
+            List<SudokuGrid> solutions = new List<SudokuGrid>();
+            Solve(original.Clone(), 0, 0, solutions, -1);
             return solutions;
         }
 
-        public static void Solve(SudokuGrid grid, uint row, uint col, IList<SudokuGrid> solutions)
+        public static void Solve(SudokuGrid grid, uint row, uint col, IList<SudokuGrid> solutions, int maxSolutions)
         {
             // This case identifies a solved puzzle.
             if (row >= grid.Size)
@@ -29,13 +38,13 @@ namespace SudokuSolver
 
             // Only attempt possibilities on empty cells.
             if (grid[row, col] >= 0)
-                Next(grid, row, col, solutions);
+                Next(grid, row, col, solutions, maxSolutions);
             else
             {
                 foreach (int val in grid.GetPossibilities(row,col))
                 {
                     grid[row, col] = val;
-                    Next(grid, row, col, solutions);
+                    Next(grid, row, col, solutions, maxSolutions);
                 }
 
                 // Reset to empty on our way out.
@@ -43,8 +52,11 @@ namespace SudokuSolver
             }
         }
 
-        public static void Next(SudokuGrid grid, uint row, uint col, IList<SudokuGrid> solutions)
+        public static void Next(SudokuGrid grid, uint row, uint col, IList<SudokuGrid> solutions, int maxSolutions)
         {
+            if (maxSolutions >= 0 && solutions.Count >= maxSolutions)
+                return;
+
             uint curBestRow = grid.Size, curBestCol = 0;
             int curBest = int.MaxValue;
 
@@ -61,7 +73,7 @@ namespace SudokuSolver
                 }
             }
             
-            Solve(grid, curBestRow, curBestCol, solutions);
+            Solve(grid, curBestRow, curBestCol, solutions, maxSolutions);
         }
     }
 }

@@ -3,6 +3,7 @@ namespace SudokuSolver
 {
     public interface ISudokuSolver
     {
-        IList<SudokuGrid> FindAllSolutions(SudokuGrid original);
+        SudokuGrid FindFirstSolution(SudokuGrid original);
+        List<SudokuGrid> FindAllSolutions(SudokuGrid original);
     }
 }

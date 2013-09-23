@@ -20,7 +20,7 @@ namespace SudokuSolver
             throw new NotImplementedException();
         }
 
-        public IList<SudokuGrid> FindAllSolutions(SudokuGrid original)
+        public List<SudokuGrid> FindAllSolutions(SudokuGrid original)
         {
             bool[,] matrix = constructMatrix(original);
             var solutions = _algorithm.AlgorithmX(matrix);

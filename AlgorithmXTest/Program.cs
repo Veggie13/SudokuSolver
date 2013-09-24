@@ -19,8 +19,8 @@ namespace AlgorithmXTest
                 {false, true, false, false, false, false, true}
             };
 
-            IAlgorithmX alg = new NaiveAlgorithmX();
-            var solutions = alg.AlgorithmX(matrix);
+            IAlgorithmX alg = new DLX();
+            var solutions = alg.AlgorithmX(matrix, -1);
 
             Console.ReadLine();
         }

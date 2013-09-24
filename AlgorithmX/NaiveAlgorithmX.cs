@@ -79,20 +79,20 @@ namespace AlgorithmX
             }
         }
 
-        public List<List<int>> AlgorithmX(bool[,] matrix)
+        public List<List<int>> AlgorithmX(bool[,] matrix, int maxSolutions)
         {
             List<List<int>> solutions = new List<List<int>>();
             Matrix A = new Matrix(matrix);
-            AlgorithmX(A, solutions);
+            AlgorithmX(A, solutions, maxSolutions);
             return solutions;
         }
 
-        private static bool AlgorithmX(Matrix A, List<List<int>> solutions)
+        private static bool AlgorithmX(Matrix A, List<List<int>> solutions, int maxSolutions)
         {
-            return AlgorithmX(A, new List<int>(), solutions);
+            return AlgorithmX(A, new List<int>(), solutions, maxSolutions);
         }
 
-        private static bool AlgorithmX(Matrix A, IEnumerable<int> partial, List<List<int>> solutions)
+        private static bool AlgorithmX(Matrix A, IEnumerable<int> partial, List<List<int>> solutions, int maxSolutions)
         {
             // Step 1 - If A is empty, problem solved, terminate successfully.
             if (A.Rows().Count() == 0 || A.Columns().Count() == 0)
@@ -147,7 +147,8 @@ namespace AlgorithmX
 
                     // Step 6 - Repeat algorithm recursively on reduced matrix
                     var B = new Matrix(A, badRows, badCols);
-                    AlgorithmX(B, newPartial, solutions);
+                    if (AlgorithmX(B, newPartial, solutions, maxSolutions) && maxSolutions >= 0 && solutions.Count >= maxSolutions)
+                        return true;
                 }
             }
 

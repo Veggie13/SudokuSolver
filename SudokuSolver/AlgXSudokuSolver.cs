@@ -17,13 +17,18 @@ namespace SudokuSolver
 
         public SudokuGrid FindFirstSolution(SudokuGrid original)
         {
-            throw new NotImplementedException();
+            bool[,] matrix = constructMatrix(original);
+            var solutions = _algorithm.AlgorithmX(matrix, 1);
+
+            List<SudokuGrid> results = solutions.Select(s => decodeGrid(matrix, s)).ToList();
+
+            return results.FirstOrDefault();
         }
 
         public List<SudokuGrid> FindAllSolutions(SudokuGrid original)
         {
             bool[,] matrix = constructMatrix(original);
-            var solutions = _algorithm.AlgorithmX(matrix);
+            var solutions = _algorithm.AlgorithmX(matrix, -1);
 
             List<SudokuGrid> results = solutions.Select(s => decodeGrid(matrix, s)).ToList();
 

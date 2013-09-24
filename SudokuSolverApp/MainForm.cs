@@ -18,7 +18,7 @@ namespace SudokuSolverApp
         const string UNKNOWNS = ".0";
 
         SudokuParser _parser = new SudokuParser();
-        ISudokuSolver _solver = new AlgXSudokuSolver(new NaiveAlgorithmX());
+        ISudokuSolver _solver = new BacktrackSudokuSolver();
 
         public MainForm()
         {
@@ -92,14 +92,12 @@ namespace SudokuSolverApp
 
         private void _btnSolve_Click(object sender, EventArgs e)
         {
-            IList<SudokuGrid> results = _solver.FindAllSolutions(_sudokuControl.Grid);
-            if (results.Count < 1)
+            SudokuGrid result = _solver.FindFirstSolution(_sudokuControl.Grid);
+            if (result == null)
                 MessageBox.Show("No solutions were found.");
             else
             {
-                if (results.Count > 1)
-                    MessageBox.Show("More than one solution was found. Returning first.");
-                _sudokuControl.Grid = results[0];
+                _sudokuControl.Grid = result;
             }
         }
     }

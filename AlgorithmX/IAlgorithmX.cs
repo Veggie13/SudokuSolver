@@ -7,6 +7,6 @@ namespace AlgorithmX
 {
     public interface IAlgorithmX
     {
-        List<List<int>> AlgorithmX(bool[,] matrix);
+        List<List<int>> AlgorithmX(bool[,] matrix, int maxSolutions);
     }
 }

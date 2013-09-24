@@ -30,6 +30,8 @@ namespace SudokuSolverApp
             base.OnLoad(e);
 
             _sudokuControl.Alphabet = ALPHABET;
+
+            _cboSolver.SelectedIndex = 0;
         }
 
         private void _btnNew_Click(object sender, EventArgs e)
@@ -98,6 +100,24 @@ namespace SudokuSolverApp
             else
             {
                 _sudokuControl.Grid = result;
+            }
+        }
+
+        private void _cboSolver_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (_cboSolver.SelectedIndex)
+            {
+                case 0:
+                    _solver = new BacktrackSudokuSolver();
+                    break;
+                case 1:
+                    _solver = new AlgXSudokuSolver(new NaiveAlgorithmX());
+                    break;
+                case 2:
+                    _solver = new AlgXSudokuSolver(new DLX());
+                    break;
+                default:
+                    break;
             }
         }
     }
